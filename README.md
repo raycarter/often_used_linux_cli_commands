@@ -225,7 +225,7 @@ following commands don't have a **sudo** prefix.
 	tar -zxf abc.tar.gz
 	
 	# show list of files in a tar.gz
-	tar -ztxf abc.tar.gz
+	tar -tvf abc.tar.gz
 	
 	# extract one file from a tar.gz
 	tar -zxf abc.tar.gz path/to/filename	
