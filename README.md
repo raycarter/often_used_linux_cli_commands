@@ -191,8 +191,10 @@ following commands don't have a **sudo** prefix.
 	# search files or dirs that contain 'abc' in name
 	find -name '*abc*'
 
-	# search files or dirs that contain 'abc' in contents
+	# search files that contain 'abc' in contents
 	find . -name '*' | xargs grep 'abc'
+	# or
+	fgrep -nr somethingToSearch *.*
 	
 	# sort files by last changed time
 	find -type f -exec stat --format '%y %n' "{}" \; | sort -nr | head -n 100
