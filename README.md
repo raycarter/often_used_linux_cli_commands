@@ -199,6 +199,9 @@ following commands don't have a **sudo** prefix.
 	# sort files by last changed time
 	find -type f -exec stat --format '%y %n' "{}" \; | sort -nr | head -n 100
 	
+	# replace strings in all found files using regular expression
+	find -type f -name "*" -exec sed -i 's/someStringsToBeReplaced/somethingNew/g' {} \;
+	
 	# file monitoring
 	tail -f filename
 	
