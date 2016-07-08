@@ -52,6 +52,11 @@ following commands don't have a **sudo** prefix.
 	# show all groups' name, id, assigned users
 	cat /etc/group
 
+	# login remote server without entering password
+	ssh-keygen
+	ssh-copy-id username@remote
+	ssh username@remote
+	
 ### APT and dpkg stuffs:
 	
 	# update apt repository data
