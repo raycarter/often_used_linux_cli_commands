@@ -87,6 +87,11 @@ cat /etc/passwd
 
 # show all groups' name, id, assigned users
 cat /etc/group
+
+# login remote server without entering password
+ssh-keygen
+ssh-copy-id username@remote
+ssh username@remote
 </code></pre>
 
 <h3>
@@ -246,6 +251,9 @@ fgrep -nr somethingToSearch *.*
 
 # sort files by last changed time
 find -type f -exec stat --format '%y %n' "{}" \; | sort -nr | head -n 100
+
+# replace strings in all found files using regular expression
+find -type f -name "*" -exec sed -i 's/someStringsToBeReplaced/somethingNew/g' {} \;
 
 # file monitoring
 tail -f filename
