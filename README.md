@@ -328,3 +328,9 @@ following commands don't have a **sudo** prefix.
 	# replay the commands (nothing will be re-executed, only the typing and results)
 	scriptreplay commands.time output.txt
 
+## Often used programs' commands:
+### Git:
+### OpenSSL:
+### Docker:
+
+
