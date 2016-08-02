@@ -289,10 +289,20 @@ following commands don't have a **sudo** prefix.
 	nethogs
 	
 	# show info about running processes
-	ps -ef 
+	ps -ef
+	ps -eaux
+	
+	# sort processes by current cpu usage using ps
+	ps -eaux | sort -k 3
+	
+	# sort processes by current mem usage using ps
+	ps -eaux | sort -k 4
 	
 	# monitor running processes
 	top
+	
+	# limit top by specific process-name
+	top -p `pgrep processName | tr "\\n" "," | sed "s/,$//"`
 	
 ### Execution of commands:
 
