@@ -64,12 +64,14 @@ following commands don't have a **sudo** prefix.
 	
 	# install a package with version number
 	apt-get install abc=5.5.29...
+	dpkg -i *.deb
 	
 	# search a package with name
 	apt-cache search packagename
 	
 	# uninstall a package
 	apt-get remove packagename
+	dpkg -r packagename
 	
 	# show information about a package
 	apt-cache showpkg packagename
