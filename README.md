@@ -306,6 +306,9 @@ following commands don't have a **sudo** prefix.
 	# limit top by specific process-name
 	top -p `pgrep processName | tr "\\n" "," | sed "s/,$//"`
 	
+	# calculate ram usage of processes that contain the same processName
+	top -n1 -b | grep processName | sort -u -rk 9 | awk '{print $10}' | sed "s/,/\./" | paste -sd+ - | bc
+	
 ### Execution of commands:
 
 	# scheduling tasks:
