@@ -273,7 +273,7 @@ following commands don't have a **sudo** prefix.
 	free -m -s 5
 	
 	# show info about file system
-	df -ah
+	df -ahT
 	
 	# show info about network interfaces
 	ifconfig
