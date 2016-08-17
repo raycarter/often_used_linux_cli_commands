@@ -20,7 +20,7 @@ following commands don't have a **sudo** prefix.
  
 ### User administration
 
-	# create a user with home-dir
+	# create an user with home-dir
 	useradd -o -m -s /bin/bash/ username
 	
 	# create a super user, make him the SAME user as root and have home-dir
@@ -28,19 +28,22 @@ following commands don't have a **sudo** prefix.
 	# to delete this super user: change the uid from 0 to other in the /etc/passwd
 	useradd -u 0 -g 0 -o -m -s /bin/bash username 
 	
-	# change the password of a user	
+	# change the password of an user	
 	passwd username
 	
-	# delete a user and his home-dir
+	# disable login for an user; sudo -u -i still works
+	passwd -d username
+	
+	# delete an user and his home-dir
 	userdel -r username  
 	
 	# add a group (with --system is a system group)
 	addgroup groupname  
 	
-	# add a user to a group
+	# add an user to a group
 	usermod -a -G groupname username
 	
-	# delete a user from a group
+	# delete an user from a group
 	gpasswd -d username groupname
 
 	# show log of users' login
