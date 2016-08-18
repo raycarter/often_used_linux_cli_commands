@@ -290,7 +290,7 @@ following commands don't have a **sudo** prefix.
 	# scan the status of a port (remote)
 	nmap -p 8080 example.com
 	
-	# monitor net transfer
+	# monitor net transfer for processes
 	nethogs
 	
 	# show info about running processes
