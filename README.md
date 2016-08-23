@@ -56,8 +56,10 @@ following commands don't have a **sudo** prefix.
 	cat /etc/group
 
 	# login remote server without entering password
-	ssh-keygen
+	ssh-keygen -t rsa -f keyFileName_rsa
 	ssh-copy-id username@remote
+	# or 
+	cat keyFileName_rsa.pub | ssh username@remote 'cat >> .ssh/authorized_keys'
 	ssh username@remote
 	
 ### APT and dpkg stuffs:
