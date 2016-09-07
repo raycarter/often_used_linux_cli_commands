@@ -60,6 +60,9 @@ following commands don't have a **sudo** prefix.
 	ssh-copy-id -i keyFileName_rsa.pub username@remote
 	ssh username@remote
 	
+	# copy file content to clipboard
+	cat fileName | xclip -sel clip
+	
 ### APT and dpkg stuffs:
 	
 	# update apt repository data
