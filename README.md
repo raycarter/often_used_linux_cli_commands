@@ -315,6 +315,10 @@ following commands don't have a **sudo** prefix.
 	# calculate ram usage of processes that contain the same processName
 	top -n1 -b | grep processName | sort -u -rk 9 | awk '{print $10}' | sed "s/,/\./" | paste -sd+ - | bc
 	
+	# check errors of system or services
+	systemctl status serviceName
+	journalctl -xe
+	
 ### Execution of commands:
 
 	# scheduling tasks:
