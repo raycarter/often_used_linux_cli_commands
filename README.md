@@ -198,8 +198,11 @@ following commands don't have a **sudo** prefix.
 	# modify owner of a file or dir
 	chown uid filename
 	
-	modify group of a file or dir
+	# modify group of a file or dir
 	chgrp groupname filename
+	
+	# make new files and directories in one directory also having the same group
+	chmod g+s dirname
 	
 	# search files or dirs that contain 'abc' in name
 	find -name '*abc*'
