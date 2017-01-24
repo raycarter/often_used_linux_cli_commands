@@ -330,6 +330,19 @@ following commands don't have a **sudo** prefix.
 
 ## Often used programs' commands:
 ### Git:
+	# init a new repository
+	git init
+	# init a new repository on server-site
+	git init --bare
+	
+	# add github, bitbucket, ... to existing local git-repo
+	git remote add origin ssh://git@bitbucket.org/.../...git
+	git push -u origin master
+	
+	# commit changes
+	git commit -a -m "commit comments"
+	
+	
 ### OpenSSL:
 ### Docker:
 
