@@ -358,6 +358,9 @@ following commands don't have a **sudo** prefix.
 
 ## Often used programs' commands:
 ### Git:
+	# recursive add empty directories to git-repository, except the directories in .git/
+	find . -type d -empty -not -path "./.git/*" -exec touch {}/.gitkeep \;
+	
 ### OpenSSL:
 ### Docker:
 
