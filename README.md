@@ -20,7 +20,7 @@ following commands don't have a **sudo** prefix.
  
 ### User administration
 
-	# create a user with home-dir
+	# create an user with home-dir
 	useradd -o -m -s /bin/bash/ username
 	
 	# create a super user, make him the SAME user as root and have home-dir
@@ -28,19 +28,22 @@ following commands don't have a **sudo** prefix.
 	# to delete this super user: change the uid from 0 to other in the /etc/passwd
 	useradd -u 0 -g 0 -o -m -s /bin/bash username 
 	
-	# change the password of a user	
+	# change the password of an user	
 	passwd username
 	
-	# delete a user and his home-dir
+	# disable login for an user; sudo -u -i still works
+	passwd -d username
+	
+	# delete an user and his home-dir
 	userdel -r username  
 	
 	# add a group (with --system is a system group)
 	addgroup groupname  
 	
-	# add a user to a group
+	# add an user to a group
 	usermod -a -G groupname username
 	
-	# delete a user from a group
+	# delete an user from a group
 	gpasswd -d username groupname
 
 	# show log of users' login
@@ -53,9 +56,12 @@ following commands don't have a **sudo** prefix.
 	cat /etc/group
 
 	# login remote server without entering password
-	ssh-keygen
-	ssh-copy-id username@remote
+	ssh-keygen -t rsa -f keyFileName_rsa
+	ssh-copy-id -i keyFileName_rsa.pub username@remote
 	ssh username@remote
+	
+	# copy file content to clipboard
+	cat fileName | xclip -sel clip
 	
 ### APT and dpkg stuffs:
 	
@@ -64,12 +70,14 @@ following commands don't have a **sudo** prefix.
 	
 	# install a package with version number
 	apt-get install abc=5.5.29...
+	dpkg -i *.deb
 	
 	# search a package with name
 	apt-cache search packagename
 	
 	# uninstall a package
 	apt-get remove packagename
+	dpkg -r packagename
 	
 	# show information about a package
 	apt-cache showpkg packagename
@@ -190,8 +198,11 @@ following commands don't have a **sudo** prefix.
 	# modify owner of a file or dir
 	chown uid filename
 	
-	modify group of a file or dir
+	# modify group of a file or dir
 	chgrp groupname filename
+	
+	# make new files and directories in one directory also having the same group
+	chmod g+s dirname
 	
 	# search files or dirs that contain 'abc' in name
 	find -name '*abc*'
@@ -271,7 +282,7 @@ following commands don't have a **sudo** prefix.
 	free -m -s 5
 	
 	# show info about file system
-	df -ah
+	df -ahT
 	
 	# show info about network interfaces
 	ifconfig
@@ -285,14 +296,31 @@ following commands don't have a **sudo** prefix.
 	# scan the status of a port (remote)
 	nmap -p 8080 example.com
 	
-	# monitor net transfer
+	# monitor net transfer for processes
 	nethogs
 	
 	# show info about running processes
-	ps -ef 
+	ps -ef
+	ps -eaux
+	
+	# sort processes by current cpu usage using ps
+	ps -eaux | sort -k 3
+	
+	# sort processes by current mem usage using ps
+	ps -eaux | sort -k 4
 	
 	# monitor running processes
 	top
+	
+	# limit top by specific process-name
+	top -p `pgrep processName | tr "\\n" "," | sed "s/,$//"`
+	
+	# calculate ram usage of processes that contain the same processName
+	top -n1 -b | grep processName | sort -u -rk 9 | awk '{print $10}' | sed "s/,/\./" | paste -sd+ - | bc
+	
+	# check errors of system or services
+	systemctl status serviceName
+	journalctl -xe
 	
 ### Execution of commands:
 
@@ -342,6 +370,9 @@ following commands don't have a **sudo** prefix.
 	# commit changes
 	git commit -a -m "commit comments"
 	
+	# recursive add empty directories to git-repository, except the directories in .git/
+	find . -type d -empty -not -path "./.git/*" -exec touch {}/.gitkeep \;
+
 	
 ### OpenSSL:
 ### Docker:
