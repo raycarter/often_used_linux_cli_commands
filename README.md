@@ -373,6 +373,27 @@ following commands don't have a **sudo** prefix.
 	# recursive add empty directories to git-repository, except the directories in .git/
 	find . -type d -empty -not -path "./.git/*" -exec touch {}/.gitkeep \;
 
+### Apache2:
+	# start, stop
+	service apache2 start/stop
+	
+	# restart gracefully
+	service apache2 reload
+	
+	# enable, disable modules
+	a2enmod modName
+	a2dismod modName
+	
+	# enable, disable sites
+	a2ensite siteName
+	a2dissite siteName
+	
+	# enable, disable config
+	a2enconf confName
+	a2disconf confName
+	
+	# show enabled modules or sites(settings in config files)
+	apache2tcl -M / -S
 	
 ### OpenSSL:
 ### Docker:
