@@ -385,6 +385,11 @@ following commands don't have a **sudo** prefix.
 	# merge other branch with current branch
 	git merge otherBranchName
 	
+	# use stash to store changes temporarily
+	git stasch
+	git stash list
+	git stash apply [stash@{num}]
+	
 	
 ### Apache2:
 	# start, stop
