@@ -372,7 +372,41 @@ following commands don't have a **sudo** prefix.
 	
 	# recursive add empty directories to git-repository, except the directories in .git/
 	find . -type d -empty -not -path "./.git/*" -exec touch {}/.gitkeep \;
-
+	
+	# show branches
+	git show-branch
+	
+	# create branch and switch to it
+	git checkout -b branchName
+	
+	# delete branch
+	git branch -d branchName
+	
+	# merge other branch with current branch
+	git merge otherBranchName
+	
+	
+### Apache2:
+	# start, stop
+	service apache2 start/stop
+	
+	# restart gracefully
+	service apache2 reload
+	
+	# enable, disable modules
+	a2enmod modName
+	a2dismod modName
+	
+	# enable, disable sites
+	a2ensite siteName
+	a2dissite siteName
+	
+	# enable, disable config
+	a2enconf confName
+	a2disconf confName
+	
+	# show enabled modules or sites(settings in config files)
+	apache2tcl -M / -S
 	
 ### OpenSSL:
 ### Docker:
