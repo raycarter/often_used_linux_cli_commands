@@ -249,7 +249,10 @@ following commands don't have a **sudo** prefix.
 	tar -tvf abc.tar.gz
 	
 	# extract one file from a tar.gz
-	tar -zxf abc.tar.gz path/to/filename	
+	tar -zxf abc.tar.gz path/to/filename
+	
+	# open file explorer 
+	nautilus pathToFolder
 	
 ### System and machine:
 
