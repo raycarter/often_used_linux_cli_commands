@@ -1,0 +1,8 @@
+title: Often used linux cli commands
+description: Linux, Ubuntu, bash, CLI
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-tactile
+
+gems:
+  - jekyll-mentions
