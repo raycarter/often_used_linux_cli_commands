@@ -382,8 +382,10 @@ following commands don't have a **sudo** prefix.
 	# create branch and switch to it
 	git checkout -b branchName
 	
-	# delete branch
+	# delete local branch
 	git branch -d branchName
+	# delete remote branch
+	git push originOrOther --delete branchName
 	
 	# merge other branch with current branch
 	git merge otherBranchName
@@ -392,6 +394,14 @@ following commands don't have a **sudo** prefix.
 	git stasch
 	git stash list
 	git stash apply [stash@{num}]
+	
+	# show diff between 2 commits, branches or changed files
+	git diff commitHash1 commitHash2
+	git diff HEAD commitHash
+	git diff path/to/changedFile
+	
+	# remove "^m" by git diff
+	git config --global core.whitespace cr-at-eol
 	
 	
 ### Apache2:
