@@ -401,6 +401,11 @@ following commands don't have a **sudo** prefix.
 	# remove "^m" by git diff
 	git config --global core.whitespace cr-at-eol
 	
+	# delete local branch
+	git branch -d branchName
+	# delete remote branch
+	git push originOrOther --delete branchName
+	
 	
 ### Apache2:
 	# start, stop
