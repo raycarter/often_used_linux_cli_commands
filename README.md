@@ -373,6 +373,10 @@ following commands don't have a **sudo** prefix.
 	# commit changes
 	git commit -a -m "commit comments"
 	
+	# change message of last commit
+	git commit --amend
+	git push --force originOrOther branchOfTheCommit
+	
 	# recursive add empty directories to git-repository, except the directories in .git/
 	find . -type d -empty -not -path "./.git/*" -exec touch {}/.gitkeep \;
 	
