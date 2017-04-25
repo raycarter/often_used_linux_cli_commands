@@ -407,6 +407,9 @@ following commands don't have a **sudo** prefix.
 	# remove "^m" by git diff
 	git config --global core.whitespace cr-at-eol
 	
+	# try to cache password for the next n seconds (useful for https git remote)
+	git config credential.helper 'cache --timeout=2592000'  (30 days)
+	
 	
 ### Apache2:
 	# start, stop
