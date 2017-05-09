@@ -21,7 +21,7 @@ following commands don't have a **sudo** prefix.
 ### User administration
 
 	# create an user with home-dir
-	useradd -o -m -s /bin/bash/ username
+	useradd -m -s /bin/bash/ username
 	
 	# create a super user, make him the SAME user as root and have home-dir
 	# (BUT BE CAREFUL OF DOING THIS ENLESS YOU KNOW WHAT YOU ARE DOING)
