@@ -287,6 +287,9 @@ following commands don't have a **sudo** prefix.
 	# show info about file system
 	df -ahT
 	
+	# show info about disks
+	hdparm -i/-I /dev/sda1
+	
 	# show info about network interfaces
 	ifconfig
 	
