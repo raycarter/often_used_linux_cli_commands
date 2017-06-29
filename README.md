@@ -373,6 +373,9 @@ following commands don't have a **sudo** prefix.
 	git remote add origin ssh://git@bitbucket.org/.../...git
 	git push -u origin master
 	
+	# push to all remote repositories
+	git remote | xargs -L1 git push
+	
 	# commit changes
 	git commit -a -m "commit comments"
 	
