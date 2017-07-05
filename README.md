@@ -346,6 +346,8 @@ following commands don't have a **sudo** prefix.
 	command >> output.txt
 	# record stderr to a file
 	command 2> output.txt
+	# record output to file and show it in console at the same time
+	command | tee output.txt
 	### record output of some commands to a file without sh-file
 	script output.txt
 	command1
