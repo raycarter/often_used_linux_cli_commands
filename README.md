@@ -208,9 +208,9 @@ following commands don't have a **sudo** prefix.
 	find -name '*abc*'
 
 	# search files that contain 'abc' in contents
-	find . -name '*' | xargs grep 'abc'
+	find . -name '*' | xargs grep -nP -C 3 'abc'
 	# or
-	fgrep -nr somethingToSearch *.*
+	fgrep -nr -C 3 somethingToSearch *.*
 	
 	# sort files by last changed time
 	find -type f -exec stat --format '%y %n' "{}" \; | sort -nr | head -n 100
