@@ -126,41 +126,7 @@ following commands don't have a **sudo** prefix.
 	dpkg --set-selections < packagesList
 	apt-get autoremove
 	apt-get dselect-upgrade
-	
-### Port forwarding over SSH: 
-	
-	# Let's say, I want through local port 3316 to connect 3306 on example.org with username: 
-	ssh -f username@example.org -L 3316:localhost:3306 -N
 
-### Ubuntu-Destop running in VirtualBox under Windows:
-	
-	# auto setup the resolution to the size of the VM-window in the host(Windows)
-	
-	# in 12.04
-	apt-get install virtualbox-ose-guest-utils virtualbox-ose-guest-x11 virtualbox-ose-guest-dkms
-	
-	# in 14.04
-	apt-get install virtualbox-guest-dkms
-
-### Windows-Desktop running in VirtualBox under Ubuntu:
-
-	# auto setup the resolution to the size of the VM-window in the host(Ubuntu)
-	# get the name of the running vm
-	VBoxManage list runningvms 
-	VBoxManage controlvm "name_of_the_running_vm" setvideomodehint 1280 900 32 
-
-### Setup the number of workspaces in Ubuntu : 3*3
-	
-	dconf write /org/compiz/profiles/unity/plugins/core/hsize 3
-	dconf write /org/compiz/profiles/unity/plugins/core/vsize 3
-	restart
-	
-	# actually I don't use the above mentioned 3 commands any more because I found 
-	# the unity tweak tool.	
-	apt-add-repository ppa:tualatrix/ppa
-	apt-get update
-	apt-get install ubuntu-tweak
-	
 ### Operations for files or directories:
 
 	# create dir
@@ -448,12 +414,48 @@ following commands don't have a **sudo** prefix.
 	
 	# show enabled modules or sites(settings in config files)
 	apache2tcl -M / -S
+
+
+
+## some small tricks
 	
-### OpenSSL:
-### Docker:
+### Port forwarding over SSH: 
+	
+	# Let's say, I want through local port 3316 to connect 3306 on example.org with username: 
+	ssh -f username@example.org -L 3316:localhost:3306 -N
 
+### adding bash script to Unity panel as quick laucher
+	
+	# THANK TO https://askubuntu.com/questions/141229/how-to-add-a-shell-script-to-launcher-as-shortcut
 
+### Ubuntu-Destop running in VirtualBox under Windows:
+	
+	# auto setup the resolution to the size of the VM-window in the host(Windows)
+	
+	# in 12.04
+	apt-get install virtualbox-ose-guest-utils virtualbox-ose-guest-x11 virtualbox-ose-guest-dkms
+	
+	# in 14.04
+	apt-get install virtualbox-guest-dkms
 
+### Windows-Desktop running in VirtualBox under Ubuntu:
 
+	# auto setup the resolution to the size of the VM-window in the host(Ubuntu)
+	# get the name of the running vm
+	VBoxManage list runningvms 
+	VBoxManage controlvm "name_of_the_running_vm" setvideomodehint 1280 900 32 
+
+### Setup the number of workspaces in Ubuntu : 3*3
+	
+	dconf write /org/compiz/profiles/unity/plugins/core/hsize 3
+	dconf write /org/compiz/profiles/unity/plugins/core/vsize 3
+	restart
+	
+	# actually I don't use the above mentioned 3 commands any more because I found 
+	# the unity tweak tool.	
+	apt-add-repository ppa:tualatrix/ppa
+	apt-get update
+	apt-get install ubuntu-tweak
+	
 
 ######################
