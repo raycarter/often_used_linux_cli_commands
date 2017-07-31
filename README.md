@@ -415,7 +415,19 @@ following commands don't have a **sudo** prefix.
 	# show enabled modules or sites(settings in config files)
 	apache2tcl -M / -S
 
-
+### Docker
+	# create image using Dockerfile
+	docker build -t tagName pathContainsDockerfile
+	
+	# run an image with portforwarding and run it in background
+	docker -d -p 8888:80 imageTagName
+	
+	# list all running containers
+	docker ps
+	
+	# stop a container
+	docker stop containerID
+	
 
 ## some small tricks
 	
