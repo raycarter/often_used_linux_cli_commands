@@ -422,11 +422,29 @@ following commands don't have a **sudo** prefix.
 	# run an image with portforwarding and run it in background
 	docker -d -p 8888:80 imageTagName
 	
-	# list all running containers
-	docker ps
+	# list all containers
+	docker ps -a
+	
+	# list all images
+	docker images -a
 	
 	# stop a container
 	docker stop containerID
+	# stop a container forcely
+	docker kill containerID
+	
+	# delete container
+	docker rm containerID
+	
+	# delete all containers
+	docker rm $(docker ps -a -q)
+	
+	# delete an image 
+	docker rmi imageTagName
+	
+	# delete all images
+	docker rmi $(docker images -a -q)
+	
 	
 
 ## some small tricks
