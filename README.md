@@ -238,6 +238,7 @@ following commands don't have a **sudo** prefix.
 	
 	# show the version of operation system
 	uname -a; head -n 1 /etc/issue
+	uname -a; lsb_release -a
 	
 	# show info about CPU
 	cat /proc/cpuinfo
