@@ -487,6 +487,21 @@ following commands don't have a **sudo** prefix.
 	apt-add-repository ppa:tualatrix/ppa
 	apt-get update
 	apt-get install ubuntu-tweak
+
+### setup mysql open_files_limit: (Thanks minni's answer https://stackoverflow.com/a/35515570)
+
+In the file /lib/systemd/system/mysql.service you have to add this 2 lines in the [Service] section at the end:
+
+	LimitNOFILE = infinity
+	LimitMEMLOCK = infinity
+
+After this restart systemctl and mysql:
+
+	systemctl daemon-reload
+	/etc/init.d/mysql restart
 	
+To check if the configuration is effective, you can get the parameter from the running mysql process like this:
+
+	cat /proc/$(pgrep mysqld$)/limits | grep files
 
 ######################
