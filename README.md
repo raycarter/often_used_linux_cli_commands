@@ -60,6 +60,10 @@ following commands don't have a **sudo** prefix.
 	ssh-copy-id -i keyFileName_rsa.pub username@remote
 	ssh username@remote
 	
+	# remove public keys on remote machine
+	vim $HOME/.ssh/authorized_keys
+	# then delete no longer used keys
+	
 	# add ssh private key to terminal session (useful for login to server from another server)
 	eval $(ssh-agent -s)
 	ssh-add ~/.ssh/other_id_rsa
