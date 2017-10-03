@@ -397,6 +397,11 @@ following commands don't have a **sudo** prefix.
 	# (THANK FOR https://stackoverflow.com/questions/1838873/visualizing-branch-topology-in-git/34467298#34467298)
 	git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 	
+	# search code in one commit and particular file type
+	git grep <regexp> <commit> -- '*.ts'
+	# search code in all commit history
+	git grep <regexp> $(git rev-list --all)
+	# and more THANKS TO https://stackoverflow.com/a/2929502
 	
 ### Apache2:
 	# start, stop
