@@ -497,7 +497,9 @@ following commands don't have a **sudo** prefix.
 	apt-get update
 	apt-get install ubuntu-tweak
 
-### setup mysql open_files_limit: (Thanks minni's answer https://stackoverflow.com/a/35515570)
+### setup mysql open_files_limit: 
+
+##### if using systemd: (Thanks minni's answer https://stackoverflow.com/a/35515570)
 
 In the file /lib/systemd/system/mysql.service you have to add this 2 lines in the [Service] section at the end:
 
@@ -512,5 +514,7 @@ After this restart systemctl and mysql:
 To check if the configuration is effective, you can get the parameter from the running mysql process like this:
 
 	cat /proc/$(pgrep mysqld$)/limits | grep files
+
+##### or: (Thanks for https://duntuk.com/how-raise-ulimit-open-files-and-mysql-openfileslimit)
 
 ######################
