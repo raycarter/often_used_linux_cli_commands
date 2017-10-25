@@ -403,6 +403,15 @@ following commands don't have a **sudo** prefix.
 	git grep <regexp> $(git rev-list --all)
 	# and more THANKS TO https://stackoverflow.com/a/2929502
 	
+	# create a patch
+	git format-patch <commit/branch> --stdout > named.patch
+	# check if a patch can be applied
+	git apply --check named.patch
+	# check patch info
+	git apply --stat named.patch
+	# apply patch
+	git apply named.patch
+	
 ### Apache2:
 	# start, stop
 	service apache2 start/stop
