@@ -48,6 +48,8 @@ following commands don't have a **sudo** prefix.
 
 	# show log of users' login
 	last -a
+	# show log of users' most recently login
+	lastlog
 	
 	# show all users' name, id, sh/bash
 	cat /etc/passwd
@@ -194,6 +196,9 @@ following commands don't have a **sudo** prefix.
 	
 	# file monitoring
 	tail -f filename
+	
+	# show users who are using a specified file
+	fuser -u -m filename
 	
 	# show the disk usage of files and dirs in current location
 	du -ah --max-depth=1 ./
