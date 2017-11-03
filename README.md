@@ -182,7 +182,10 @@ following commands don't have a **sudo** prefix.
 	
 	# search files or dirs that contain 'abc' in name
 	find -name '*abc*'
-
+	
+	# search files with name patterns
+	find ./src/ -type f -regextype emacs -regex ".*[^e][^c]\.\(ts\|html\|scss\)$"
+	
 	# search files that contain 'abc' in contents
 	find . -name '*' | xargs grep -nP -C 3 'abc'
 	# or
