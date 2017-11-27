@@ -252,6 +252,9 @@ following commands don't have a **sudo** prefix.
 	uname -a; head -n 1 /etc/issue
 	uname -a; lsb_release -a
 	
+	# show full info about motherboard (-t 2: base info; -t 17: memory info; ...)
+	sudo dmidecode -t 2/17... | more
+	
 	# show info about CPU
 	cat /proc/cpuinfo
 	
