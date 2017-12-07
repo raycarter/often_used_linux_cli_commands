@@ -393,10 +393,13 @@ following commands don't have a **sudo** prefix.
 	git stash list
 	git stash apply [stash@{num}]
 	
+	# list commits which change a spec file
+	git log --follow fileName
+	
 	# show diff between 2 commits, branches or changed files
 	git diff commitHash1 commitHash2
 	git diff HEAD commitHash
-	git diff path/to/changedFile
+	git diff commit1 commit2 -- path/to/fileName
 	
 	# remove "^m" by git diff
 	git config --global core.whitespace cr-at-eol
