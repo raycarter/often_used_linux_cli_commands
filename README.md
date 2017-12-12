@@ -358,8 +358,11 @@ following commands don't have a **sudo** prefix.
 	git init --bare
 	
 	# add github, bitbucket, ... to existing local git-repo
-	git remote add origin ssh://git@bitbucket.org/.../...git
+	git remote add origin ssh://git@...
 	git push -u origin master
+	
+	# change remote URL
+	git remote set-url origin ssh://git@....
 	
 	# push to all remote repositories
 	git remote | xargs -L1 git push
@@ -484,7 +487,7 @@ following commands don't have a **sudo** prefix.
 	
 ### Port forwarding over SSH: 
 	
-	# Let's say, I want through local port 3316 to connect 3306 on example.org with username: 
+	# connect 3306 on example.org with username through local port 3316 
 	ssh -f username@example.org -L 3316:localhost:3306 -N
 
 ### adding bash script to Unity panel as quick laucher
