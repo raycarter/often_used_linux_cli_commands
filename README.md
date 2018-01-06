@@ -429,6 +429,9 @@ following commands don't have a **sudo** prefix.
 	# apply patch
 	git apply named.patch
 	
+	# remove file from index
+	git rm --cached filename
+	
 ### Apache2:
 	# start, stop
 	service apache2 start/stop
