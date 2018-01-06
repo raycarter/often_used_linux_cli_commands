@@ -361,6 +361,11 @@ following commands don't have a **sudo** prefix.
 	git remote add origin ssh://git@...
 	git push -u origin master
 	
+	# push tag to remote
+	git push origin tagName
+	# push a moved tag
+	git push origin tagName --force
+	
 	# change remote URL
 	git remote set-url origin ssh://git@....
 	
