@@ -425,6 +425,9 @@ following commands don't have a **sudo** prefix.
 	git grep <regexp> $(git rev-list --all)
 	# and more THANKS TO https://stackoverflow.com/a/2929502
 	
+	# show which author in which commit last modified lines of a file
+	git blame -L300,+1 fileName
+	
 	# create a patch
 	git format-patch <commit/branch> --stdout > named.patch
 	# check if a patch can be applied
