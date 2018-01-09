@@ -395,6 +395,12 @@ following commands don't have a **sudo** prefix.
 	
 	# merge other branch with current branch
 	git merge otherBranchName
+	# merge other branch using changes of current branch
+	git merge -s ours
+	# merge other branch using strategy "recursive", but only by conflicts using changes of current branch
+	git merge -X ours
+	# merge other branch using strategy "recursive", but only by conflicts using changes of incoming branch
+	git merge -X theirs
 	
 	# use stash to store changes temporarily
 	git stasch
