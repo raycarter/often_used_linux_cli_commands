@@ -403,9 +403,11 @@ following commands don't have a **sudo** prefix.
 	git merge -X theirs
 	
 	# use stash to store changes temporarily
-	git stasch
+	git stash
 	git stash list
 	git stash apply [stash@{num}]
+	# delete all stashed changes
+	git stash clear
 	
 	# list commits which change a spec file
 	git log --follow fileName
