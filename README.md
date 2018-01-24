@@ -372,8 +372,18 @@ following commands don't have a **sudo** prefix.
 	# push to all remote repositories
 	git remote | xargs -L1 git push
 	
-	# commit changes
-	git commit -a -m "commit comments"
+	## commit changes
+	# stage a file
+	git add filename
+	# stage all changed files
+	git add -A
+	# commit with message
+	git commit -m "commit comment"
+	## or
+	git commit -a -m "commit comment"
+	
+	# unstage all staged files
+	git reset
 	
 	# change message of last commit
 	git commit --amend
@@ -408,6 +418,9 @@ following commands don't have a **sudo** prefix.
 	git stash apply [stash@{num}]
 	# delete all stashed changes
 	git stash clear
+	# show changes in a stash
+	git stash show -p
+	git stash show -p stash@{num}
 	
 	# list commits which change a spec file
 	git log --follow fileName
