@@ -412,6 +412,9 @@ following commands don't have a **sudo** prefix.
 	# merge other branch using strategy "recursive", but only by conflicts using changes of incoming branch
 	git merge -X theirs
 	
+	# make commits as if they took place after other commits in other branch were made
+	git rebase origin/master master
+	
 	# use stash to store changes temporarily
 	git stash
 	git stash list
