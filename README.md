@@ -387,6 +387,13 @@ following commands don't have a **sudo** prefix.
 	
 	# change message of last commit
 	git commit --amend
+	
+	# change message of a specific commit
+	git rebase -i HEAD~number #number: how far is the to changed commit referenced from HEAD
+	# change 'pick' with 'reword', then save.
+	# change message, then save.
+	
+	# change commt message to remote: first change message like above locally, then
 	git push --force originOrOther branchOfTheCommit
 	
 	# recursive add empty directories to git-repository, except the directories in .git/
