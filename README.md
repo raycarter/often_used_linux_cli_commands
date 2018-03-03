@@ -536,16 +536,6 @@ following commands don't have a **sudo** prefix.
 	
 	# THANK TO https://askubuntu.com/questions/141229/how-to-add-a-shell-script-to-launcher-as-shortcut
 
-### Ubuntu-Destop running in VirtualBox under Windows:
-	
-	# auto setup the resolution to the size of the VM-window in the host(Windows)
-	
-	# in 12.04
-	apt-get install virtualbox-ose-guest-utils virtualbox-ose-guest-x11 virtualbox-ose-guest-dkms
-	
-	# in 14.04
-	apt-get install virtualbox-guest-dkms
-
 ### Windows-Desktop running in VirtualBox under Ubuntu:
 
 	# auto setup the resolution to the size of the VM-window in the host(Ubuntu)
