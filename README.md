@@ -523,7 +523,10 @@ following commands don't have a **sudo** prefix.
 	# delete all images
 	docker rmi $(docker images -a -q)
 	
-	
+	# manage volumes in /var/lib/docker/volume 
+	docker volume ls
+	docker volume rm volumeName
+	docker volume inspect volumeName
 
 ## some small tricks
 	
