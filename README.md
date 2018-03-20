@@ -388,6 +388,13 @@ following commands don't have a **sudo** prefix.
 	# change message of last commit
 	git commit --amend
 	
+	# git reset commit HARD (reset pointer and files) and SOFT (reset only pointer)
+	git reset HEAD^ --hard (--soft)
+	
+	# restore commit after reset
+	git reflog
+	git reset 'HEAD@{number}' # HEAD@{number} is the reference of throwed commit in reflog
+	
 	# change message of a specific commit
 	git rebase -i HEAD~number #number: how far is the to changed commit referenced from HEAD
 	# change 'pick' with 'reword', then save.
