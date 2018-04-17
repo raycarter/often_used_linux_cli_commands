@@ -536,6 +536,10 @@ following commands don't have a **sudo** prefix.
 	docker volume inspect volumeName
 
 ## some small tricks
+
+### workaround for meld encoding problems:
+
+	gsettings set org.gnome.meld detect-encodings "['UTF-8','ISO-8859-1','UTF-16']"
 	
 ### Port forwarding over SSH: 
 	
