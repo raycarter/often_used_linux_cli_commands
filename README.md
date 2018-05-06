@@ -589,4 +589,28 @@ To check if the configuration is effective, you can get the parameter from the r
 
 ##### or: (Thanks for https://duntuk.com/how-raise-ulimit-open-files-and-mysql-openfileslimit)
 
+### create certificates:
+
+create root CA:
+	
+	openssl genrsa -aes256 -out rootCA-privateKey.pem 2048
+	openssl req -new -key rootCA-privateKey.pem -out rootCA-req.csr -subj "/C=Country/ST=City/L=Land/O=someCompany/OU=CompanyDepartment/CN=domainName"
+	openssl x509 -req -days 3650 -sha1 -extensions v3_ca -signkey rootCA-privateKey.pem -in rootCA-req.csr -out rootCA-ca.cer
+
+use root CA to encrypt server certificate:
+
+	openssl genrsa -aes256 -out server-privateKey.pem 2048
+	openssl req -new -key server-privateKey.pem -out server-req.csr -subj "/C=Country/ST=City/L=Land/O=someCompany/OU=CompanyDepartment/CN=domainName"
+	openssl x509 -req -days 3650 -sha1 -extensions v3_ca -CA rootCA-ca.cer -CAkey rootCA-privateKey.pem -CAserial rootCA-ca.srl -CAcreateserial -in server-req.csr -out server-cer.cer
+
+use root CA to encrypt client certificate:
+
+	openssl genrsa -aes256 -out client-privateKey.pem 2048
+	openssl req -new -key client-privateKey.pem -out client-req.csr -subj "/C=Country/ST=City/L=Land/O=someCompany/OU=CompanyDepartment/CN=domainName"
+	openssl x509 -req -days 3650 -sha1 -extensions v3_ca -CA rootCA-ca.cer -CAkey rootCA-privateKey.pem -CAserial rootCA-ca.srl -CAcreateserial -in client-req.csr -out client-cer.cer
+
+export p12:
+
+	openssl pkcs12 -export -clcerts -inkey client-privateKey.pem -in client-cer.cer -out client-cer.p12
+
 ######################
