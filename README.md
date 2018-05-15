@@ -381,6 +381,8 @@ following commands don't have a **sudo** prefix.
 	git commit -m "commit comment"
 	## or
 	git commit -a -m "commit comment"
+	# make a empty commit (useful for triggering a hook)
+	git commit --allow-empty -m "comment"
 	
 	# unstage all staged files
 	git reset
