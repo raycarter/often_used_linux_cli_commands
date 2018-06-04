@@ -428,6 +428,9 @@ following commands don't have a **sudo** prefix.
 	# merge other branch using strategy "recursive", but only by conflicts using changes of incoming branch
 	git merge -X theirs
 	
+	# fast foreward merge into other branch without checkout it first
+	git fetch . master:release # . means using local repo; merge master into release
+	
 	# make commits as if they took place after other commits in other branch were made
 	git rebase origin/master master
 	
