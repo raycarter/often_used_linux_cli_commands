@@ -596,6 +596,13 @@ To check if the configuration is effective, you can get the parameter from the r
 
 ### create certificates:
 
+#### use certbot:
+
+	# install certbot for apache
+	apt install python-certbot-apache
+	# install a certificate for a domain
+	certbot --apache
+	
 create root CA:
 	
 	openssl genrsa -aes256 -out rootCA-privateKey.pem 2048
