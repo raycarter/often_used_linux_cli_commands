@@ -603,6 +603,8 @@ To check if the configuration is effective, you can get the parameter from the r
 	# install a certificate for a domain
 	certbot --apache
 	
+#### create certificate manually:
+
 create root CA:
 	
 	openssl genrsa -aes256 -out rootCA-privateKey.pem 2048
