@@ -447,6 +447,9 @@ following commands don't have a **sudo** prefix.
 	# list commits which change a spec file
 	git log --follow fileName
 	
+	# list commits with stat of changes
+	git log --stat
+	
 	# show diff between 2 commits, branches or changed files
 	git diff commitHash1 commitHash2
 	git diff HEAD commitHash
