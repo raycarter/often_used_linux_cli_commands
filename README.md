@@ -132,6 +132,12 @@ following commands don't have a **sudo** prefix.
 	dpkg --set-selections < packagesList
 	apt-get autoremove
 	apt-get dselect-upgrade
+	
+	### upgrade system
+	# check if new version available
+	do-release-upgrade -c
+	# upgrade
+	do-release-upgrade
 
 ### Operations for files or directories:
 
