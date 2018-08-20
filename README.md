@@ -558,6 +558,8 @@ following commands don't have a **sudo** prefix.
 	
 	# THANK TO https://askubuntu.com/questions/141229/how-to-add-a-shell-script-to-launcher-as-shortcut
 
+### menu bar in gnome top bar
+	# use the extention Gnome Global Application Menu(HUD for Gnome) by extensions.gnome.org 
 ### Windows-Desktop running in VirtualBox under Ubuntu:
 
 	# auto setup the resolution to the size of the VM-window in the host(Ubuntu)
