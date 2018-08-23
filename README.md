@@ -515,6 +515,14 @@ following commands don't have a **sudo** prefix.
 	apache2tcl -M / -S
 
 ### Docker
+	
+	# get docker system info
+	docker system info
+	
+	# show space usages
+	docker system df
+	docker system df -v
+	
 	# create image using Dockerfile
 	docker build -t tagName pathContainsDockerfile
 	
@@ -548,6 +556,14 @@ following commands don't have a **sudo** prefix.
 	docker volume ls
 	docker volume rm volumeName
 	docker volume inspect volumeName
+	
+	### clean up (thanks to https://gist.github.com/bastman/5b57ddb3c11942094f8d0a97d461b430)
+	# clean stopped containers
+	docker rm $(docker ps -qa --filter "status=exited")
+	# clean temp images
+	docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')
+	# clean unsed volumns
+	docker volume rm $(docker volume ls -qf --filter "dangling=true")
 
 ## some small tricks
 
