@@ -429,6 +429,8 @@ following commands don't have a **sudo** prefix.
 	git branch -d branchName
 	# delete remote branch
 	git push originOrOther --delete branchName
+	# set branch to other commit/branch...
+	git branch -f branchName otherCommitOrBranch
 	
 	# merge other branch with current branch
 	git merge otherBranchName
