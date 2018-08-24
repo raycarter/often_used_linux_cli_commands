@@ -46,6 +46,11 @@ following commands don't have a **sudo** prefix.
 	# delete an user from a group
 	gpasswd -d username groupname
 
+	# create a only-local-login-user; 
+	# if other user should use this special user account through sudo -u, then edit sudo config 
+	useradd -m -s /bin/bash username
+	usermod -L username
+	
 	# show log of users' login
 	last -a
 	# show log of users' most recently login
