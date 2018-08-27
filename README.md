@@ -572,6 +572,11 @@ following commands don't have a **sudo** prefix.
 	# clean unsed volumns
 	docker volume rm $(docker volume ls -qf --filter "dangling=true")
 
+	# execute commands in container
+	docker exec containerName bash -c "commands"
+	# execute commands in container with console
+	docker exec -it containerName bash -c "commands"
+	
 ## some small tricks
 
 ### workaround for meld encoding problems:
