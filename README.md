@@ -564,6 +564,9 @@ following commands don't have a **sudo** prefix.
 	docker volume rm volumeName
 	docker volume inspect volumeName
 	
+	# find out all mounts and volumes of a container
+	docker inspect -f {{ .Mounts }} containderId
+	
 	### clean up (thanks to https://gist.github.com/bastman/5b57ddb3c11942094f8d0a97d461b430)
 	# clean stopped containers
 	docker rm $(docker ps -qa --filter "status=exited")
