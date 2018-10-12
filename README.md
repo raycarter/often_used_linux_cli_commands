@@ -287,6 +287,14 @@ following commands don't have a **sudo** prefix.
 	# show info about disks
 	hdparm -i/-I /dev/sda1
 	
+	# format disk (example: USB)
+	# unmount first
+	umount /dev/sdd1
+	# format to ntfs
+	mkfs.ntfs /dev/sdd1
+	# format to ext4
+	mkfs.ext4 /dev/sdd1
+	
 	# show info about network interfaces
 	ifconfig
 	
