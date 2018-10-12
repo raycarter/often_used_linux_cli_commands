@@ -272,6 +272,19 @@ following commands don't have a **sudo** prefix.
 	# show mounted devices
 	mount | column -t
 	
+	### share folders to other machine
+	## on server:
+	apt install nfs-common nfs-kernel-server rpcbind
+	# add info in /etc/exports:
+	/path/to/shared/folder clientNameOrIP(rw,sync,no_subtree_check)
+	/etc/init.d/nfs-kernel-server restart
+	# on client:
+	apt install nfs-common
+	# check if server with folder visible
+	showmount -e serverNameOrIP
+	# mount server's folder
+	mount -o soft,intr,rsize=8192,wsize=8192 serverNameOrIP:/path/to/shared/folder /path/to/shared/folderClient
+	
 	# list of pci devices
 	lspci -tv
 	
