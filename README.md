@@ -51,6 +51,12 @@ following commands don't have a **sudo** prefix.
 	useradd -m -s /bin/bash username
 	usermod -L username
 	
+	# login to other user with current env
+	su username
+	# login to other user with his env
+	su -l username
+	sudo -u username -i
+	
 	# show log of users' login
 	last -a
 	# show log of users' most recently login
