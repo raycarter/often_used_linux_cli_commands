@@ -577,6 +577,9 @@ following commands don't have a **sudo** prefix.
 	# delete container
 	docker rm containerID
 	
+	# delete container with volume
+	docker rm -v containerID
+	
 	# delete all containers
 	docker rm $(docker ps -a -q)
 	
