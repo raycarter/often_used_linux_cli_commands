@@ -560,7 +560,12 @@ following commands don't have a **sudo** prefix.
 	# create image using Dockerfile
 	docker build -t tagName pathContainsDockerfile
 	
+	# transfer image not using registry
+	docker save --output imageName.tar imageName
+	docker load --input imageName.tar
+	
 	# run an image with portforwarding and run it in background
+	# there are a lot of other useful parameters available for this command such as -v --restart etc.
 	docker -d -p 8888:80 imageTagName
 	
 	# list all containers
