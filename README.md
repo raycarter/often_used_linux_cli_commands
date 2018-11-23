@@ -608,7 +608,7 @@ following commands don't have a **sudo** prefix.
 	# clean temp images
 	docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')
 	# clean unsed volumns
-	docker volume rm $(docker volume ls -qf --filter "dangling=true")
+	docker volume rm $(docker volume ls -q --filter "dangling=true")
 
 	# execute commands in container
 	docker exec containerName bash -c "commands"
