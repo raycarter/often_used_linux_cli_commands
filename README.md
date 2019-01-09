@@ -179,6 +179,12 @@ following commands don't have a **sudo** prefix.
 	# rename file
 	mv filename newfilename
 	
+	# file/folder operations by name using regex
+	find dir/ -maxdepth 1 -iregex "pattern" -exec cp {} distdir/ \;
+	# example:
+	find . -maxdepth 1 -type d -iregex ".*00[0-1][1-2].*" -exec cp -r {} dist/ \; 
+	# copy folders with name contains *0001*, *0002*, *0011*, *0012*
+	
 	# show list of all files and dirs in current location with permissions and human-readable size
 	ls -alh
 	
