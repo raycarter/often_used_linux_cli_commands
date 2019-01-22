@@ -566,6 +566,9 @@ following commands don't have a **sudo** prefix.
 	# create image using Dockerfile
 	docker build -t tagName pathContainsDockerfile
 	
+	# create image using running/stopped container
+	docker commit -a "author info" -m "message info" containerName imageName[:tag]
+	
 	# transfer image not using registry
 	docker save --output imageName.tar imageName
 	docker load --input imageName.tar
