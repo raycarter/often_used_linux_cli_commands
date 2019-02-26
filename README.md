@@ -496,6 +496,9 @@ following commands don't have a **sudo** prefix.
 	# list commits with stat of changes
 	git log --stat
 	
+	# check changes of lines in commits
+	git log -L110,120:src/.../.../filename
+	
 	# show diff between 2 commits, branches or changed files
 	git diff commitHash1 commitHash2
 	git diff HEAD commitHash
