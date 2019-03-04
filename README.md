@@ -413,8 +413,10 @@ following commands don't have a **sudo** prefix.
 	# change remote URL
 	git remote set-url origin ssh://git@....
 	
-	# push to all remote repositories
+	# push all branches to all remote repositories
 	git remote | xargs -L1 git push
+	# push one branch (e.g. master) to all remote repositories
+	git remote | xargs -L1 -I R git push R master
 	
 	## commit changes
 	# stage a file
