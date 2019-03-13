@@ -358,6 +358,11 @@ following commands don't have a **sudo** prefix.
 	systemctl status serviceName
 	journalctl -xe
 	
+	# increse max number of watched files, inotify watchers reaches limit:
+	# modify or add fs.inotify.max_user_watches in /etc/sysctl.conf
+	echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf
+	sysctl -p
+	
 ### Execution of commands:
 
 	# scheduling tasks:
