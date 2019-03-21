@@ -622,8 +622,8 @@ following commands don't have a **sudo** prefix.
 	docker inspect -f {{ .Mounts }} containderId
 	
 	### clean up (thanks to https://gist.github.com/bastman/5b57ddb3c11942094f8d0a97d461b430)
-	# clean stopped containers
-	docker rm $(docker ps -qa --filter "status=exited")
+	# clean temp containers: mostly created by running Dockerfile
+	docker rm -v $(docker ps -qa --filter "status=exited" --filter "name=_")
 	# clean temp images
 	docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')
 	# clean unsed volumns
