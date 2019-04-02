@@ -690,6 +690,27 @@ To check if the configuration is effective, you can get the parameter from the r
 
 ##### or: (Thanks for https://duntuk.com/how-raise-ulimit-open-files-and-mysql-openfileslimit)
 
+### change mysql default `datadir`:
+
+stop mysql:
+
+	service mysql stop
+
+copy mysql data dir:
+
+	cp -R -p /var/lib/mysql /new/path
+	
+edit conf file, change /var/lib/mysql to /new/path:
+
+	vim /etc/mysql/mysql.conf.d/mysqld.cnf
+	vim /etc/apparmor.d/usr.sbin.mysqld
+	# reload apparmor conf
+	/etc/init.d/apparmor reload
+
+restart mysql:
+
+	service mysql start
+	
 ### create certificates:
 
 #### use certbot:
