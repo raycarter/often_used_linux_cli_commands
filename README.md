@@ -530,6 +530,9 @@ following commands don't have a **sudo** prefix.
 	# show which author in which commit last modified lines of a file
 	git blame -L300,+1 fileName
 	
+	# list all authors in one repo (n: sort by num of commits)
+	git shortlog -sn | awk -F ' ' '{print $2, $3}'
+	
 	# create a patch
 	git format-patch <commit/branch> --stdout > named.patch
 	# check if a patch can be applied
