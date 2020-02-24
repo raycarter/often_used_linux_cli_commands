@@ -300,6 +300,9 @@ following commands don't have a **sudo** prefix.
 	# use lshw
 	lshw -c display/memory/cpu/...
 	
+	# use nvidia specific commands to show info of nvidia graphic cards
+	nvidia-smi
+	
 	# list of pci devices
 	lspci -tv
 	
