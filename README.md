@@ -297,6 +297,9 @@ following commands don't have a **sudo** prefix.
 	# mount server's folder
 	mount -o soft,intr,rsize=8192,wsize=8192 serverNameOrIP:/path/to/shared/folder /path/to/shared/folderClient
 	
+	# use lshw
+	lshw -c display/memory/cpu/...
+	
 	# list of pci devices
 	lspci -tv
 	
