@@ -203,6 +203,14 @@ following commands don't have a **sudo** prefix.
 	# make new files and directories in one directory also having the same group
 	chmod g+s dirname
 	
+	# lock/unlock file or dir (with sudo also can not be deleted) 
+	chattr +i filename/dir
+	chattr -i filename/dir
+	
+	# only adding content to file or dir allowed
+	chattr +a filename/dir
+	chattr -a filename/dir
+	
 	# search files or dirs that contain 'abc' in name
 	find -name '*abc*'
 	
