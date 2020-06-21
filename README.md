@@ -766,4 +766,19 @@ export p12:
 	# analyse apache error log file: count accesses by ip and sort the results
 	awk -F "[][{}]" '{print $8}' error.log | awk -F ":" '{print $1}' | sort | uniq -c | sort -n 
 	
+### usb tethering
+	
+	# 1. turn on usb tethering on phone
+	# 2. find out network adaptor name
+	ifconfig -a
+	# or
+	ip link
+	# then
+	ifconfig enp0xxxxxxxxx up
+	# 3. add config in /etc/network/interfaces
+	# auto enp0xxxxxxxxx
+	# iface enp0xxxxxxxxx inet dhcp
+	# 4. activate
+	ifup enp0xxxxxxxxx
+	
 ######################
