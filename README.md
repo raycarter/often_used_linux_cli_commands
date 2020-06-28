@@ -780,5 +780,8 @@ export p12:
 	# iface enp0xxxxxxxxx inet dhcp
 	# 4. activate
 	ifup enp0xxxxxxxxx
-	
+
+### AC 1200 rtl88x Wifi driver
+
+	# check https://github.com/cilynx for newest driver and follow the readme
 ######################
