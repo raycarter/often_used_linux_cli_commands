@@ -377,6 +377,11 @@ following commands don't have a **sudo** prefix.
 	echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf
 	sysctl -p
 	
+### Hardware:
+	
+	# Usb sound device not working
+	## install PluseAudio Volume Control -> Configuration-Tab: set profiles of other sound devices "off"
+	
 ### Execution of commands:
 
 	# scheduling tasks:
