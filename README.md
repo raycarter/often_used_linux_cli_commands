@@ -382,6 +382,9 @@ following commands don't have a **sudo** prefix.
 	# Usb sound device not working
 	## install PluseAudio Volume Control -> Configuration-Tab: set profiles of other sound devices "off"
 	
+	# fix NTFS Drive read-only error after used by Windows
+	ntfsfix /dev/....
+	
 ### Execution of commands:
 
 	# scheduling tasks:
