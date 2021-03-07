@@ -383,6 +383,7 @@ following commands don't have a **sudo** prefix.
 	## install PluseAudio Volume Control -> Configuration-Tab: set profiles of other sound devices "off"
 	
 	# fix NTFS Drive read-only error after used by Windows
+	# get path of the device, unmount, then:
 	ntfsfix /dev/....
 	
 ### Execution of commands:
