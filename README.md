@@ -386,6 +386,9 @@ following commands don't have a **sudo** prefix.
 	# get path of the device, unmount, then:
 	ntfsfix /dev/....
 	
+	# setup wlan over lan
+	## change interface metrics of wlan greater than lan
+	
 ### Execution of commands:
 
 	# scheduling tasks:
