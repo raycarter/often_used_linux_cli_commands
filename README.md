@@ -349,6 +349,9 @@ following commands don't have a **sudo** prefix.
 	# monitor net transfer for processes
 	nethogs
 	
+	# monitor net transfer for all network-interfaces
+	bmon
+	
 	# show info about running processes
 	ps -ef
 	ps -eaux
