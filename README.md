@@ -20,6 +20,8 @@ following commands don't have a **sudo** prefix.
  
 ### User administration
 
+```bash
+
 	# create an user with home-dir
 	useradd -m -s /bin/bash/ username
 	
@@ -83,9 +85,13 @@ following commands don't have a **sudo** prefix.
 	
 	# copy file content to clipboard
 	cat fileName | xclip -sel clip
+
+```
 	
 ### APT and dpkg stuffs:
 	
+```bash
+
 	# update apt repository data
 	apt-get update
 	
@@ -149,8 +155,11 @@ following commands don't have a **sudo** prefix.
 	do-release-upgrade -c
 	# upgrade
 	do-release-upgrade
+```
 
 ### Operations for files or directories:
+
+```bash
 
 	# create dir
 	mkdir abc
@@ -267,7 +276,11 @@ following commands don't have a **sudo** prefix.
 	# open file explorer 
 	nautilus pathToFolder
 	
+```
+
 ### System and machine:
+
+```bash
 
 	# if I forgot every sudo-users' passwords and cannot enter the machine:
 	# restart the maschine, enter "Recovery Mode" and type:
@@ -380,8 +393,12 @@ following commands don't have a **sudo** prefix.
 	echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf
 	sysctl -p
 	
+```
+
 ### Hardware:
 	
+```bash
+
 	# Usb sound device not working
 	## install PluseAudio Volume Control -> Configuration-Tab: set profiles of other sound devices "off"
 	
@@ -392,7 +409,11 @@ following commands don't have a **sudo** prefix.
 	# setup wlan over lan
 	## change interface metrics of wlan greater than lan
 	
+```
+
 ### Execution of commands:
+
+```bash
 
 	# scheduling tasks:
 	# @reboot @yearly ... @daily commands
@@ -427,9 +448,12 @@ following commands don't have a **sudo** prefix.
 	exit
 	# replay the commands (nothing will be re-executed, only the typing and results)
 	scriptreplay commands.time output.txt
+```
 
 ## Often used programs' commands:
 ### Git:
+
+```bash
 	# init a new repository
 	git init
 	# init a new repository on server-site
@@ -580,7 +604,12 @@ following commands don't have a **sudo** prefix.
 	# remove file from index
 	git rm --cached filename
 	
+```
+
 ### Apache2:
+
+```bash
+
 	# start, stop
 	service apache2 start/stop
 	
@@ -601,9 +630,12 @@ following commands don't have a **sudo** prefix.
 	
 	# show enabled modules or sites(settings in config files)
 	apache2tcl -M / -S
+```
 
 ### Docker
 	
+```bash
+
 	# get docker system info
 	docker system info
 	
@@ -672,16 +704,24 @@ following commands don't have a **sudo** prefix.
 	# execute commands in container with console
 	docker exec -it containerName bash -c "commands"
 	
+```
+
 ## some small tricks
 
 ### workaround for meld encoding problems:
 
+```bash
+
 	gsettings set org.gnome.meld detect-encodings "['UTF-8','ISO-8859-1','UTF-16']"
-	
+```
+
 ### Port forwarding over SSH: 
 	
+```bash
+
 	# connect 3306 on example.org with username through local port 3316 
 	ssh -f username@example.org -L 3316:localhost:3306 -N
+```
 
 ### adding bash script to Unity panel as quick laucher
 	
@@ -691,13 +731,19 @@ following commands don't have a **sudo** prefix.
 	# use the extention Gnome Global Application Menu(HUD for Gnome) by extensions.gnome.org 
 ### Windows-Desktop running in VirtualBox under Ubuntu:
 
+```bash
+
 	# auto setup the resolution to the size of the VM-window in the host(Ubuntu)
 	# get the name of the running vm
 	VBoxManage list runningvms 
 	VBoxManage controlvm "name_of_the_running_vm" setvideomodehint 1280 900 32 
 
+```
+
 ### Setup the number of workspaces in Ubuntu : 3*3
 	
+```bash
+
 	dconf write /org/compiz/profiles/unity/plugins/core/hsize 3
 	dconf write /org/compiz/profiles/unity/plugins/core/vsize 3
 	restart
@@ -707,6 +753,8 @@ following commands don't have a **sudo** prefix.
 	apt-add-repository ppa:tualatrix/ppa
 	apt-get update
 	apt-get install ubuntu-tweak
+
+```
 
 ### setup mysql open_files_limit: 
 
@@ -719,12 +767,20 @@ In the file /lib/systemd/system/mysql.service you have to add this 2 lines in th
 
 After this restart systemctl and mysql:
 
+```bash
+
 	systemctl daemon-reload
 	/etc/init.d/mysql restart
 	
+```
+
 To check if the configuration is effective, you can get the parameter from the running mysql process like this:
 
+```bash
+
 	cat /proc/$(pgrep mysqld$)/limits | grep files
+
+```
 
 ##### or: (Thanks for https://duntuk.com/how-raise-ulimit-open-files-and-mysql-openfileslimit)
 
@@ -732,63 +788,95 @@ To check if the configuration is effective, you can get the parameter from the r
 
 stop mysql:
 
+```bash
+
 	service mysql stop
+
+```
 
 copy mysql data dir:
 
+```bash
+
 	cp -R -p /var/lib/mysql /new/path
 	
+```
+
 edit conf file, change /var/lib/mysql to /new/path:
+
+```bash
 
 	vim /etc/mysql/mysql.conf.d/mysqld.cnf
 	vim /etc/apparmor.d/usr.sbin.mysqld
 	# reload apparmor conf
 	/etc/init.d/apparmor reload
 
+```
+
 restart mysql:
 
+```bash
 	service mysql start
-	
+```
+
 ### create certificates:
 
 #### use certbot:
+
+```bash
 
 	# install certbot for apache
 	apt install python-certbot-apache
 	# install a certificate for a domain
 	certbot --apache
+```
+
 	
 #### create certificate manually:
 
 create root CA:
 	
+```bash
 	openssl genrsa -aes256 -out rootCA-privateKey.pem 2048
 	openssl req -new -key rootCA-privateKey.pem -out rootCA-req.csr -subj "/C=Country/ST=City/L=Land/O=someCompany/OU=CompanyDepartment/CN=domainName"
 	openssl x509 -req -days 3650 -sha1 -extensions v3_ca -signkey rootCA-privateKey.pem -in rootCA-req.csr -out rootCA-ca.cer
 
+```
+
 use root CA to encrypt server certificate:
 
+```bash
 	openssl genrsa -aes256 -out server-privateKey.pem 2048
 	openssl req -new -key server-privateKey.pem -out server-req.csr -subj "/C=Country/ST=City/L=Land/O=someCompany/OU=CompanyDepartment/CN=domainName"
 	openssl x509 -req -days 3650 -sha1 -extensions v3_ca -CA rootCA-ca.cer -CAkey rootCA-privateKey.pem -CAserial rootCA-ca.srl -CAcreateserial -in server-req.csr -out server-cer.cer
 
+```
+
 use root CA to encrypt client certificate:
 
+```bash
 	openssl genrsa -aes256 -out client-privateKey.pem 2048
 	openssl req -new -key client-privateKey.pem -out client-req.csr -subj "/C=Country/ST=City/L=Land/O=someCompany/OU=CompanyDepartment/CN=domainName"
 	openssl x509 -req -days 3650 -sha1 -extensions v3_ca -CA rootCA-ca.cer -CAkey rootCA-privateKey.pem -CAserial rootCA-ca.srl -CAcreateserial -in client-req.csr -out client-cer.cer
 
+```
+
 export p12:
 
+```bash
 	openssl pkcs12 -export -clcerts -inkey client-privateKey.pem -in client-cer.cer -out client-cer.p12
+```
 
 ### awk
 	
+```bash
 	# analyse apache error log file: count accesses by ip and sort the results
-	awk -F "[][{}]" '{print $8}' error.log | awk -F ":" '{print $1}' | sort | uniq -c | sort -n 
-	
+	awk -F "[][{}]" '{print $8}' error.log | awk -F ":" '{print $1}' | sort | uniq -c | sort -n 	
+```
+
 ### usb tethering
 	
+```bash
 	# 1. turn on usb tethering on phone
 	# 2. find out network adaptor name
 	ifconfig -a
@@ -801,6 +889,8 @@ export p12:
 	# iface enp0xxxxxxxxx inet dhcp
 	# 4. activate
 	ifup enp0xxxxxxxxx
+
+```
 
 ### AC 1200 rtl88x Wifi driver
 
