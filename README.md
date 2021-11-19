@@ -562,6 +562,12 @@ following commands don't have a **sudo** prefix.
 	# list all authors in one repo (n: sort by num of commits)
 	git shortlog -sn | awk -F ' ' '{print $2, $3}'
 	
+	# count changing lines of authors
+	git log --format='%aN' | sort -u | while read author; do echo "$author " && git log --author="$author" --pretty=tformat: --numstat -- . ':!to-be-excluded-dir' | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "lines added: %s, removed: %s, total: %s\n", add, subs, loc }'; done
+	
+	# count lines of authors based on HEAD
+	git ls-files | while read f; do git blame -w -M -C -C --line-porcelain "$f" | grep "^author "; done | sort -f | uniq -ic | sort -n
+	
 	# create a patch
 	git format-patch <commit/branch> --stdout > named.patch
 	# check if a patch can be applied
