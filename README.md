@@ -729,6 +729,14 @@ following commands don't have a **sudo** prefix.
 
 ### menu bar in gnome top bar
 	# use the extention Gnome Global Application Menu(HUD for Gnome) by extensions.gnome.org 
+
+### install typescript support for vim
+
+```bash
+	git clone https://github.com/pangloss/vim-javascript.git ~/.vim/pack/vim-javascript/start/vim-javascript
+	git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim
+```
+
 ### Windows-Desktop running in VirtualBox under Ubuntu:
 
 ```bash
