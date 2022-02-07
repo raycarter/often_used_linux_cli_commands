@@ -827,7 +827,7 @@ restart mysql:
 	service mysql start
 ```
 
-### create certificates:
+### certificates:
 
 #### use certbot:
 
@@ -873,6 +873,12 @@ export p12:
 
 ```bash
 	openssl pkcs12 -export -clcerts -inkey client-privateKey.pem -in client-cer.cer -out client-cer.p12
+```
+
+#### print certificates:
+
+```bash
+	keytool -printcert -file cert.pem
 ```
 
 ### awk
