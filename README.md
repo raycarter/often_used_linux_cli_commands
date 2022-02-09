@@ -564,6 +564,12 @@ following commands don't have a **sudo** prefix.
 	git diff HEAD commitHash
 	git diff commit1 commit2 -- path/to/fileName
 	
+	# show merge request locally
+	git diff master...branch
+	
+	# show changes of master since branch was created
+	git diff branch...master
+	
 	# remove "^m" by git diff
 	git config --global core.whitespace cr-at-eol
 	
