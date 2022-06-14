@@ -393,6 +393,11 @@ following commands don't have a **sudo** prefix.
 	echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf
 	sysctl -p
 	
+	# increase number of opened files for all/specific users
+	# add in /etc/security/limits.conf
+	*               soft    nofile            2048
+	*               hard    nofile            2048
+	
 ```
 
 ### Hardware:
