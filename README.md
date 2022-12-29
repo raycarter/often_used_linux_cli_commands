@@ -892,6 +892,24 @@ export p12:
 	keytool -printcert -file cert.pem
 ```
 
+#### asym. encrypting:
+
+```bash
+	# generate private key
+	openssl genpkey -algorithm RSA -out private-key.pem -pkeyopt rsa_keygen_bits:2048
+	# generate public key of the private key
+	openssl rsa -pubout -in private-key.pem -out public-key.pem
+	# encrypt with public key
+	openssl rsautl -encrypt -inkey public-key.pem -pubin -in some.txt -out some.txt.encrypted
+	# decrypt with private key
+	openssl rsautl -decrypt -inkey private-key.pem -in some.txt.encrypted -out some.txt
+	# encrypt with private key
+	cat some.txt |  openssl rsautl -inkey private-key.pem -sign > some.txt.enc-with-private-key.encrypted
+	# decrypt with public key
+	openssl rsautl -inkey public-key.pem -pubin -in some.txt.enc-with-private-key.encrypted
+```
+
+
 ### awk
 	
 ```bash
