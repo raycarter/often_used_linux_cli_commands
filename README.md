@@ -333,6 +333,13 @@ following commands don't have a **sudo** prefix.
 	# show info about memory, cache and swap in MB, update every 10 seconds
 	free -m -s 5
 	
+	# add large swap file for memory
+	sudo fallocate -l 32G /swapfile
+	sudo chmod 600 /swapfile
+	sudo mkswap /swapfile
+	sudo swapon /swapfile
+	sudo echo "\n/swapfile swap swap defaults 0 0" >> /etc/fstab
+	
 	# show info about file system
 	df -ahT
 	
