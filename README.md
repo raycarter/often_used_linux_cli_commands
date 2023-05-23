@@ -610,6 +610,9 @@ following commands don't have a **sudo** prefix.
 	# count lines of authors based on HEAD
 	git ls-files | while read f; do git blame -w -M -C -C --line-porcelain "$f" | grep "^author "; done | sort -f | uniq -ic | sort -n
 	
+	# list num of commits and the date of last commit of each author
+	git log --format='%aN <%aE>' | sort -u | while read name; do; echo -ne "$name\t\t\t"; echo -en `git log --author="$name" --pretty=tformat: --numstat | wc -l`; echo -e "\t" `git log --author="$name" --max-count=1 --format=%cd`; done
+	
 	# create a patch
 	git format-patch <commit/branch> --stdout > named.patch
 	# check if a patch can be applied
