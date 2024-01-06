@@ -769,6 +769,19 @@ following commands don't have a **sudo** prefix.
 
 ```
 
+### WSL 
+
+Change vhdx file location using WSL export/import:
+
+```
+	wsl --export Ubuntu e:\backup\ubuntu.tar
+	wsl --unregister Ubuntu
+	mkdir e:\wsl
+	wsl --import Ubuntu e:\wsl\ e:\backup\ubuntu.tar
+	cd %userprofile%\AppData\Local\Microsoft\WindowsApps
+	ubuntu config --default-user <username>
+```
+
 ### Setup the number of workspaces in Ubuntu : 3*3
 	
 ```bash
